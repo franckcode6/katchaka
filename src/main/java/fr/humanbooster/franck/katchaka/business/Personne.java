@@ -89,4 +89,19 @@ public class Personne {
 	@ManyToOne
 	@NotNull(message = "Merci de renseigner le genre recherché")
 	private Genre genreRecherche;
+	
+	public Personne(String pseudo, String email, String motDePasse, String bio, Date dateDeNaissance, boolean fumeur, Ville ville, Genre genre, Genre genreRecherche, Statut statut, Interet interet) {
+		this();
+		this.pseudo = pseudo;
+		this.email = email;
+		this.motDePasse = motDePasse;
+		this.bio = bio;
+		this.dateDeNaissance = dateDeNaissance;
+		this.estFumeur = fumeur;
+		this.ville = ville;
+		this.genre = genre;
+		this.genreRecherche = genreRecherche;
+		this.statut = statut;
+		this.interets.add(interet);
+	}
 }
