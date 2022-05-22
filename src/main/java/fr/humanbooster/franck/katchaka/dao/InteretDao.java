@@ -6,4 +6,6 @@ import fr.humanbooster.franck.katchaka.business.Interet;
 
 public interface InteretDao extends JpaRepository<Interet, Long> {
 
+	Interet findByNom(String nom);
+
 }

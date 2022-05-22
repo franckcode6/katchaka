@@ -8,4 +8,6 @@ public interface GenreService {
 
 	List<Genre> recupererGenres();
 
+	Genre recupererGenre(Long id);
+
 }

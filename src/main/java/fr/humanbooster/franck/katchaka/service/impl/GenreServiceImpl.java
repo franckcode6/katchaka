@@ -19,4 +19,9 @@ public class GenreServiceImpl implements GenreService {
 		return genreDao.findAll();
 	}
 
+	@Override
+	public Genre recupererGenre(Long id) {
+		return genreDao.getById(id);
+	}
+
 }

@@ -20,4 +20,9 @@ public class VilleServiceImpl implements VilleService {
 		return villeDao.findAll();
 	}
 
+	@Override
+	public Ville recupererVille(Long id) {
+		return villeDao.getById(id);
+	}
+
 }

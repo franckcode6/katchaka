@@ -20,4 +20,9 @@ public class StatutServiceImpl implements StatutService {
 		return statutDao.findAll();
 	}
 
+	@Override
+	public Statut recupererStatut(Long id) {
+		return statutDao.getById(id);
+	}
+
 }

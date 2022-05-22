@@ -1,6 +1,7 @@
 package fr.humanbooster.franck.katchaka.business;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -20,24 +21,22 @@ import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 @ToString
 public class Personne {
 
-	//private static final int NB_CREDITS_INITIAL = 500;
+	private static final int NB_CREDITS_INITIAL = 500;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@NotBlank
-	@Pattern(regexp = "^([A-Za-z0-9-])", message = "Votre pseudo ne doit contenir que des lettres minuscules, majuscules ou des chiffres.")
+	@Pattern(regexp = "^([a-zA-Z0-9]*)", message = "Votre pseudo ne doit contenir que des lettres minuscules, majuscules ou des chiffres.")
 	private String pseudo;
 
 	@NotBlank
@@ -49,7 +48,7 @@ public class Personne {
 	private String email;
 
 	@Past
-	private Date dateDeNaissance;
+	private LocalDate dateDeNaissance;
 
 	@Size(min = 20, message = "La bio doit faire au moins 20 caractères")
 	private String bio;
@@ -89,8 +88,14 @@ public class Personne {
 	@ManyToOne
 	@NotNull(message = "Merci de renseigner le genre recherché")
 	private Genre genreRecherche;
-	
-	public Personne(String pseudo, String email, String motDePasse, String bio, Date dateDeNaissance, boolean fumeur, Ville ville, Genre genre, Genre genreRecherche, Statut statut, Interet interet) {
+
+	public Personne() {
+		this.interets = new ArrayList<>();
+		this.nbCredits = NB_CREDITS_INITIAL;
+	}
+
+	public Personne(String pseudo, String email, String motDePasse, String bio, LocalDate dateDeNaissance,
+			boolean fumeur, Ville ville, Genre genre, Genre genreRecherche, Statut statut, Interet interet) {
 		this();
 		this.pseudo = pseudo;
 		this.email = email;
@@ -102,6 +107,6 @@ public class Personne {
 		this.genre = genre;
 		this.genreRecherche = genreRecherche;
 		this.statut = statut;
-		this.interets.add(interet);
+		this.getInterets().add(interet);
 	}
 }

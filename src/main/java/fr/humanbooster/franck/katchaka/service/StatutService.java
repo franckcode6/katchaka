@@ -8,4 +8,6 @@ public interface StatutService {
 
 	List<Statut> recupererStatuts();
 
+	Statut recupererStatut(Long id);
+
 }

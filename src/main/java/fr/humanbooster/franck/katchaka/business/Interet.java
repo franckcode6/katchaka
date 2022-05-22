@@ -19,14 +19,19 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class Interet {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String nom;
-	
+
 	@ManyToMany
 	private List<Personne> personnes;
+
+	public Interet(String nom) {
+		this();
+		this.nom = nom;
+	}
 
 }

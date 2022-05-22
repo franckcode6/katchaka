@@ -8,4 +8,6 @@ public interface VilleService {
 
 	List<Ville> recupererVilles();
 
+	Ville recupererVille(Long id);
+
 }
