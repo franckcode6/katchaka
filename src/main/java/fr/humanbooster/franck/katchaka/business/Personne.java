@@ -30,7 +30,7 @@ import lombok.ToString;
 @ToString
 public class Personne {
 
-	private static final int NB_CREDITS_INITIAL = 500;
+	//private static final int NB_CREDITS_INITIAL = 500;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

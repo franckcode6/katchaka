@@ -22,7 +22,7 @@ import lombok.ToString;
 @ToString
 public class VieCommune {
 
-	private static final int NB_CREDITS_PAR_DEFAUT = 500;
+	//private static final int NB_CREDITS_PAR_DEFAUT = 500;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

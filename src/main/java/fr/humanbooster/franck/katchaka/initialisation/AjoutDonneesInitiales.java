@@ -14,22 +14,22 @@ import lombok.AllArgsConstructor;
 @Component
 @AllArgsConstructor
 public class AjoutDonneesInitiales implements CommandLineRunner {
-	
+
 	private final GenreDao genreDao;
 	private final StatutDao statutDao;
 	private final VilleDao villeDao;
-	
+
 	public void run(String... args) throws Exception {
 		ajouterVilles();
 		ajouterGenres();
-		ajouterStatuts();		
+		ajouterStatuts();
 	}
-	
+
 	/**
 	 * Ajout de villes par défaut en BDD au lancement de l'application
 	 */
 	private void ajouterVilles() {
-		if (villeDao.count() == 0 ) {
+		if (villeDao.count() == 0) {
 			villeDao.save(new Ville("Nice"));
 			villeDao.save(new Ville("Lyon"));
 			villeDao.save(new Ville("Paris"));
@@ -44,7 +44,7 @@ public class AjoutDonneesInitiales implements CommandLineRunner {
 			villeDao.save(new Ville("Nantes"));
 		}
 	}
-	
+
 	/**
 	 * Ajout de genres pas défaut en BDD au lancement de l'application
 	 */
@@ -55,12 +55,12 @@ public class AjoutDonneesInitiales implements CommandLineRunner {
 			genreDao.save(new Genre("Non binaire"));
 		}
 	}
-	
+
 	/**
 	 * Ajout de statuts par défaut en BDD au lancement de l'application
 	 */
 	private void ajouterStatuts() {
-		if (statutDao.count() == 0 ) {
+		if (statutDao.count() == 0) {
 			statutDao.save(new Statut("Célibataire"));
 			statutDao.save(new Statut("Séparé.e"));
 			statutDao.save(new Statut("Divorcé.e"));
