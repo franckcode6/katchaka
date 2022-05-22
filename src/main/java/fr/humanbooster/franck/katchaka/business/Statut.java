@@ -28,5 +28,9 @@ public class Statut {
 	
 	@OneToMany(mappedBy = "statut")
 	private List<Personne> personnes;
+	
+	public Statut(String nom) {
+		this.nom = nom;
+	}
 
 }

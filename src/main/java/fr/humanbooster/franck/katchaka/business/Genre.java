@@ -31,4 +31,9 @@ public class Genre {
 
 	@OneToMany(mappedBy = "genreRecherche")
 	private List<Personne> personnesRecherchant;
+	
+	public Genre(String nom) {
+		this();
+		this.nom = nom;
+	}
 }
