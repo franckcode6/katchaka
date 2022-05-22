@@ -28,4 +28,9 @@ public class Ville {
 
 	@OneToMany(mappedBy = "ville")
 	private List<Personne> personnes;
+	
+	public Ville(String nom) {
+		this();
+		this.nom = nom;
+	}
 }
