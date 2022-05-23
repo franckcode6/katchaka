@@ -8,15 +8,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
@@ -36,7 +35,7 @@ public class Personne {
 	private Long id;
 
 	@NotBlank
-	@Pattern(regexp = "^([a-zA-Z0-9]*)", message = "Votre pseudo ne doit contenir que des lettres minuscules, majuscules ou des chiffres.")
+	//@Pattern(regexp = "^([a-zA-Z0-9]*)", message = "Votre pseudo ne doit contenir que des lettres minuscules, majuscules ou des chiffres.")
 	private String pseudo;
 
 	@NotBlank
@@ -44,13 +43,14 @@ public class Personne {
 	private String motDePasse;
 
 	@NotNull(message = "Merci de renseigner une adresse mail")
-	@Email
+	//@Email
 	private String email;
 
 	@Past
 	private LocalDate dateDeNaissance;
 
 	@Size(min = 20, message = "La bio doit faire au moins 20 caractères")
+	@Lob
 	private String bio;
 
 	private int nbCredits;
