@@ -1,5 +1,7 @@
 package fr.humanbooster.franck.katchaka.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import fr.humanbooster.franck.katchaka.business.Interet;
@@ -12,6 +14,10 @@ import lombok.AllArgsConstructor;
 public class InteretServiceImpl implements InteretService {
 
 	private final InteretDao interetDao;
+	
+	public List<Interet> recupererInterets() {
+		return interetDao.findAll();
+	}
 
 	public Interet recupererInteret(String nom) {
 		return interetDao.findByNom(nom);
@@ -26,6 +32,11 @@ public class InteretServiceImpl implements InteretService {
 			return interet;
 		}
 
+	}
+
+	@Override
+	public Interet recupererInteret(Long id) {
+		return interetDao.findById(id).orElse(null);
 	}
 
 }

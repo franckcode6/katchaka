@@ -49,10 +49,13 @@
             </c:forEach>
         </select><br>
         
-        <label for="interet">Interet 1</label><input name="INTERET1"><br> 
-        <label for="interet">Interet 2</label><input name="INTERET2"><br> 
-        <label for="interet">Interet 3</label><input name="INTERET3"><br> 
-        <label for="interet">Interet 4</label><input name="INTERET4"><br> 
+         <label for="interet_id">Statut</label>
+        <select name="INTERET_ID">
+            <option value="0">Merci de choisir un interet</option>
+            <c:forEach items="${interets}" var="interet">
+                <option value="${interet.id}">${interet.nom}</option>
+            </c:forEach>
+        </select><br>
         
         <label for="bio">Bio</label><textarea name="BIO"></textarea> <br> 
         

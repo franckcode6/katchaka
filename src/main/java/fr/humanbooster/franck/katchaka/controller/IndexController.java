@@ -51,6 +51,7 @@ public class IndexController {
 		mav.addObject("villes", villeService.recupererVilles());
 		mav.addObject("statuts", statutService.recupererStatuts());
 		mav.addObject("genres", genreService.recupererGenres());
+		mav.addObject("interets", interetService.recupererInterets());
 
 		mav.setViewName("inscription");
 
@@ -61,7 +62,7 @@ public class IndexController {
 	public ModelAndView inscriptionPost(@RequestParam("PSEUDO") String pseudo, @RequestParam("EMAIL") String email,
 			@RequestParam("MOT_DE_PASSE") String motDePasse, @RequestParam("VILLE_ID") Long villeId,
 			@RequestParam("GENRE_ID") Long genreId, @RequestParam("GENRE_RECHERCHE_ID") Long genreRechercheId,
-			@RequestParam("STATUT_ID") Long statutId, @RequestParam("INTERET1") String interet,
+			@RequestParam("STATUT_ID") Long statutId, @RequestParam("INTERET_ID") Long interetID,
 			@RequestParam("BIO") String bio, @RequestParam("DATE_DE_NAISSANCE") String dateDeNaissance,
 			@RequestParam(name = "FUMEUR", required = false) boolean estFumeur) {
 
@@ -70,7 +71,7 @@ public class IndexController {
 		personneService.ajouterPersonne(pseudo, email, motDePasse, bio, date, estFumeur,
 				villeService.recupererVille(villeId), genreService.recupererGenre(genreId),
 				genreService.recupererGenre(genreId), statutService.recupererStatut(statutId),
-				interetService.ajouterInteret(interet));
+				interetService.recupererInteret(interetID));
 
 		return new ModelAndView("redirect:/");
 	}
