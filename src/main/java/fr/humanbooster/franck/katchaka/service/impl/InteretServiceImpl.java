@@ -18,20 +18,9 @@ public class InteretServiceImpl implements InteretService {
 	public List<Interet> recupererInterets() {
 		return interetDao.findAll();
 	}
-
-	public Interet recupererInteret(String nom) {
-		return interetDao.findByNom(nom);
-	}
-
-	@Override
-	public Interet ajouterInteret(String nom) {
-		if (recupererInteret(nom) != null) {
-			return recupererInteret(nom);
-		} else {
-			Interet interet = interetDao.save(new Interet(nom));
-			return interet;
-		}
-
+	
+	public List<Interet> ajouterInterets(List<Interet> interets) {
+		return interetDao.saveAll(interets);
 	}
 
 	@Override

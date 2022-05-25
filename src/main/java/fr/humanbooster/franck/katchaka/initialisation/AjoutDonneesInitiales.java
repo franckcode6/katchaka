@@ -1,6 +1,7 @@
 package fr.humanbooster.franck.katchaka.initialisation;
 
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -126,13 +127,21 @@ public class AjoutDonneesInitiales implements CommandLineRunner {
 	 */
 	private void ajouterPersonnes() {
 		if (personneDao.count() == 0) {
+			
 			for (int i = 0; i < 500; i++) {
+				// Attibution de 4 interets random pour chaque personne
+				List<Interet> interetsPersonne = new ArrayList<>();
+				for (int y = 0; y < 5; y++) {
+					interetsPersonne.add(interets.get(random.nextInt(interets.size())));
+				}
+
+				// Création et ajout d'une nouvelle personne en BDD
 				personneDao.save(new Personne(faker.name().username(), faker.internet().emailAddress(),
 						faker.internet().password(), faker.lorem().paragraph(),
 						faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
 						random.nextBoolean(), villes.get(random.nextInt(villes.size())),
 						genres.get(random.nextInt(genres.size())), genres.get(random.nextInt(genres.size())),
-						statuts.get(random.nextInt(statuts.size())), interets.get(random.nextInt(interets.size()))));
+						statuts.get(random.nextInt(statuts.size())), interetsPersonne));
 			}
 
 		}

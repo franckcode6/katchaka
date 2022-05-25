@@ -26,7 +26,7 @@ public class Interet {
 
 	private String nom;
 
-	@ManyToMany
+	@ManyToMany(mappedBy = "interets")
 	private List<Personne> personnes;
 
 	public Interet(String nom) {

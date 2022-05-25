@@ -1,6 +1,7 @@
 package fr.humanbooster.franck.katchaka.service.impl;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -19,10 +20,11 @@ public class PersonneServiceImpl implements PersonneService {
 
 	private final PersonneDao personneDao;
 
-	public Personne ajouterPersonne(String pseudo, String email, String motDePasse, String bio, LocalDate dateDeNaissance,
-			boolean fumeur, Ville ville, Genre genre, Genre genreRecherche, Statut statut, Interet interet) {
+	public Personne ajouterPersonne(String pseudo, String email, String motDePasse, String bio,
+			LocalDate dateDeNaissance, boolean fumeur, Ville ville, Genre genre, Genre genreRecherche, Statut statut,
+			List<Interet> interets) {
 		Personne personne = personneDao.save(new Personne(pseudo, email, motDePasse, bio, dateDeNaissance, fumeur,
-				ville, genre, genreRecherche, statut, interet));
+				ville, genre, genreRecherche, statut, interets));
 		return personne;
 	}
 

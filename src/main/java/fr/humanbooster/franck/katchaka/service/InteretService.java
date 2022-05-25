@@ -6,12 +6,10 @@ import fr.humanbooster.franck.katchaka.business.Interet;
 
 public interface InteretService {
 
-	Interet ajouterInteret(String interet);
-
-	Interet recupererInteret(String interet);
+	List<Interet> ajouterInterets(List<Interet> interets);
 
 	Interet recupererInteret(Long interetID);
-	
+
 	List<Interet> recupererInterets();
 
 }

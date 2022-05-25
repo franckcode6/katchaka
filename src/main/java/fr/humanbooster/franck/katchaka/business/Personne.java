@@ -95,7 +95,7 @@ public class Personne {
 	}
 
 	public Personne(String pseudo, String email, String motDePasse, String bio, LocalDate dateDeNaissance,
-			boolean fumeur, Ville ville, Genre genre, Genre genreRecherche, Statut statut, Interet interet) {
+			boolean fumeur, Ville ville, Genre genre, Genre genreRecherche, Statut statut, List<Interet>  interets) {
 		this();
 		this.pseudo = pseudo;
 		this.email = email;
@@ -107,6 +107,6 @@ public class Personne {
 		this.genre = genre;
 		this.genreRecherche = genreRecherche;
 		this.statut = statut;
-		this.getInterets().add(interet);
+		this.interets = interets;
 	}
 }
