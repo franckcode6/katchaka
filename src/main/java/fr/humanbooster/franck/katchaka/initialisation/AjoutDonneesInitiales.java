@@ -131,7 +131,7 @@ public class AjoutDonneesInitiales implements CommandLineRunner {
 			for (int i = 0; i < 500; i++) {
 				// Attibution de 4 interets random pour chaque personne
 				List<Interet> interetsPersonne = new ArrayList<>();
-				for (int y = 0; y < 5; y++) {
+				for (int y = 1; y <= 4; y++) {
 					interetsPersonne.add(interets.get(random.nextInt(interets.size())));
 				}
 
